@@ -16,6 +16,10 @@ COPY . /opt/repo/
 
 RUN pip install --no-cache-dir -r /opt/repo/requirements.txt
 
+RUN python manage.py makemigrations
+
+RUN python manage.py migrate
+
 EXPOSE 8008
 
 CMD ["python", "manage.py", "runserver","0.0.0.0:8008"]
