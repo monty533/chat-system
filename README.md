@@ -14,3 +14,23 @@ jenkins ALL=(ALL) ALL
 
 sudo passwd jenkins
 su jenkins
+
+################################
+DOCKER COMPOSE
+sudo apt docker-compose
+vi docker-compose.yml
+version: '3.0'
+
+services:
+  image-name:
+    image: nginx
+    ports:
+      -9090/80
+  databse:
+    image: redis
+
+docker-compose up -d (in detach mode)
+docker-compose down (for downing the image)
+docker-compose up -d scale database=4 (for creating multimle image of database)
+
+
